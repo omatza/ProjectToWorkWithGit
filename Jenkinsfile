@@ -2,10 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Checkout') {
+
             steps {
-                echo 'Hello World'
+               git 'https://github.com/omatza/ProjectToWorkWithGit.git'
             }
         }
+        stage('Run') {
+            steps {
+                bat 'python main.py'
+            }
+        }
+
     }
 }
